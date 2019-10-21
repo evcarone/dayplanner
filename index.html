@@ -83,7 +83,12 @@
 
   <script>
     $(document).ready(function () {
-      //object for collecting the appointment information
+      //display the current day in the header
+      var currentDayEl = $("#currentDay")
+      var dayIs = moment().format("dddd, MMMM Do YYYY");
+      currentDayEl.text(dayIs);
+
+      //create an object for collecting the appointment information
       var apptInfo = {
         hour: "5P",
         subject: "my stuff"
@@ -103,8 +108,8 @@
 
       });
 
-      var timeIs = moment().format("dddd, MMMM Do YYYY");
-      console.log("the time is " + timeIs)
+
+      
 
 
     })
