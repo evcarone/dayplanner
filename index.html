@@ -1,56 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Work Day Scheduler</title>
-  </head>
 
-  <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-    </header>
-    <div class="container">
-      <!-- Timeblocks go here .. create time block, append row, append save button -->
-      <div class="row" id="rowNineAM">
-        <div class="hour col-1 col-s-1 col-xs-1">9A</div>
-        <textarea class="textarea col-10 col-s-1 col-xs-1">.col-10 .col-md-4</textarea>
-        <button class="btn saveBtn col-1 col-s-1 col-xs-1"><i class="fas fa-save"></i>Save</button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Work Day Scheduler</title>
 
-      <div class="row" id="rowTenAM">
-        <div class="hour col-1 col-s-1 col-xs-1">10A</div>
-        <textarea class="textarea col-10 col-s-1 col-xs-1">.col-10 .col-md-4</textarea>
-        <button class="btn saveBtn col-1 col-s-1 col-xs-1"><i class="fas fa-save"></i>Save</button>
-      </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+</head>
 
-      <div class="row" id="rowElevenAM">
-        <div class="hour col-1 col-s-1 col-xs-1">11A</div>
-        <textarea class="textarea col-10 col-s-1 col-xs-1">.col-10 .col-md-4</textarea>
-        <button class="btn saveBtn col-1 col-s-1 col-xs-1"><i class="fas fa-save"></i>Save</button>
-      </div>
-    
+<body>
+  <header class="jumbotron">
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
+
+  <div class="container">
+    <!-- Timeblocks go here .. create time block, append row, append save button -->
+    <div class="row" id="rowNineAM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="9A">9A</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea9A">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="9A"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  </body>
+    <div class="row" id="rowTenAM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="10A">10A</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea10A">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="10A"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowElevenAM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="11A">11A</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea11A">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="11A"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowTwelvePM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="12P">12P</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea12P">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="12P"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowOnePM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="1P">1P</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea1P">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="1P"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowTwoPM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="2P">2P</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea2P">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="2P"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowThreePM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="3P">3P</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea3P">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="3P"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowFourPM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="4P">4P</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea4P">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="4P"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+    <div class="row" id="rowFivePM">
+      <div class="hour col-1 col-s-1 col-xs-1" id="5P">5P</div>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea5P">.col-10 .col-md-4</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="5P"><i class="fas fa-save"></i>Save</button>
+    </div>
+
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      //object for collecting the appointment information
+      var apptInfo = {
+        hour: "5P",
+        subject: "my stuff"
+      };
+
+      //on button click get the id of the of the row and get the subject infoation then store the apptInfo object to local storage
+      $(".btn").on("click", function () {
+        var getHour = $(this).attr("id")
+        var subjectEl = document.getElementById("txtArea".concat(getHour)).value
+
+        console.log("getHour vlue is " + getHour)
+        console.log("get subjectEl info " + subjectEl)
+
+        apptInfo.hour = getHour;
+        apptInfo.subject = subjectEl;
+        localStorage.setItem("apptInfo", JSON.stringify(apptInfo));
+
+      });
+
+      var timeIs = moment().format("dddd, MMMM Do YYYY");
+      console.log("the time is " + timeIs)
+
+
+    })
+  </script>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
 </html>
