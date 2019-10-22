@@ -67,13 +67,13 @@
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="3P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowFourPM">
+    <div class="row" id="_04PM">
       <div class="hour col-1 col-s-1 col-xs-1" id="4P">4P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea4P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="4P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowFivePM">
+    <div class="row" id="_05PM">
       <div class="hour col-1 col-s-1 col-xs-1" id="5P">5P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea5P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="5P"><i class="fas fa-save"></i>Save</button>
@@ -99,20 +99,39 @@
         var getHour = $(this).attr("id")
         var subjectEl = document.getElementById("txtArea".concat(getHour)).value
 
-        console.log("getHour vlue is " + getHour)
-        console.log("get subjectEl info " + subjectEl)
-
         apptInfo.hour = getHour;
         apptInfo.subject = subjectEl;
         localStorage.setItem("apptInfo", JSON.stringify(apptInfo));
 
       });
 
+    // var currentHour = moment().format("hhA");
+
+    var currentHour = moment();
+    let hour = currentHour.get('hour');
+    // hour = 10;
+
+    if (hour < 9 || hour > 17) {
+
+      alert("too early or too late")
+    } else {
+
+      alert("color the row")
+
+    }
+
+    console.log("the moment is " + currentHour.format());
+    console.log("the current hour is " + hour);
+
+    
+    //compare the current time to the window of 9A - 5P ... color rows accordingly
 
       
 
 
     })
+
+    // })
   </script>
 
 
