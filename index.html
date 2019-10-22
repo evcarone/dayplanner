@@ -27,56 +27,56 @@
     <!-- Setup HTML for the page to display the basic calendar -->
     <div class="row" id="_9">
       <div class="hour col-1 col-s-1 col-xs-1" id="_09AM">9A</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea9A">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="9A"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea09AM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn09AM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_10">
       <div class="hour col-1 col-s-1 col-xs-1" id="_10AM">10A</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea10A">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="10A"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea10AM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn10AM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_11">
       <div class="hour col-1 col-s-1 col-xs-1" id="_11AM">11A</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea11A">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="11A"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea11AM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn11AM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_12">
       <div class="hour col-1 col-s-1 col-xs-1" id="_12PM">12P</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea12P">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="12P"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea12PM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn12PM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_13">
       <div class="hour col-1 col-s-1 col-xs-1" id="_1PM">1P</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea1P">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="1P"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea1PM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn1PM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_14">
       <div class="hour col-1 col-s-1 col-xs-1" id="_2PM">2P</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea2P">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="2P"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea2PM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn2PM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_15">
       <div class="hour col-1 col-s-1 col-xs-1" id="_3PM">3P</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea3P">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="3P"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea3PM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn3PM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_16">
       <div class="hour col-1 col-s-1 col-xs-1" id="_4PM">4P</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea4P">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="4P"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea4PM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn4PM"><i class="fas fa-save"></i>Save</button>
     </div>
 
     <div class="row" id="_17">
       <div class="hour col-1 col-s-1 col-xs-1" id="_5PM">5P</div>
-      <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea5P">your appointment info</textarea>
-      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="5P"><i class="fas fa-save"></i>Save</button>
+      <textarea class="textarea col-10 col-s-1 col-xs-1" id="_txtArea5PM">your appointment info</textarea>
+      <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="_btn5PM"><i class="fas fa-save"></i>Save</button>
     </div>
 
   </div>
@@ -94,29 +94,31 @@
 
       //create an object for collecting the appointment information
       var apptInfo = {
-        hour: "5P",
-        subject: "my stuff"
+        hour: "",
+        subject: ""
       };
-
-      //store time and subject to local storage
+      
       $(".btn").on("click", function () {
-        var getHour = $(this).attr("id")
-        var subjectEl = document.getElementById("txtArea".concat(getHour)).value
-
-        apptInfo.hour = getHour;
+        var getBtnId = $(this).attr("id");
+        var calcHour = getBtnId;
+        //get appointment info - compute textarea id from button id
+        var subjectEl = document.getElementById("_txtArea".concat(calcHour.replace("_btn", ""))).value
+        //set local storeage with most recent value
+        apptInfo.hour = getBtnId;
         apptInfo.subject = subjectEl;
         localStorage.setItem("apptInfo", JSON.stringify(apptInfo));
       });
-
+    
+    //color up the form
     //get the current hour
     var currentHour = moment();
-    // let hour = currentHour.get('hour');
+    let hour = currentHour.get('hour');
     
     //test variable b/c i haven't figured out how to test
-    hour = 11;
+    // hour = 7;
 
     if (hour < 9 || hour > 17) {
-      alert("not time to work")
+      $(".row").addClass("past"); //if outside of biz hours all rows are gray
     } else {
       pastRows = hour - firstHour; //compute how many hours in the past
       futureRows = finalHour - hour; //compute how many hours in the future
@@ -129,11 +131,7 @@
     
       for (i=1; i <= futureRows; i++)
       $("#_" + (hour+i)).addClass("future"); //update future hours to green
-    }
-    // console.log("the moment is " + currentHour.format());
-    // console.log("the current hour is " + hour);
-    // console.log("the future hours are " + futureRows);
-      
+    } 
     })
   </script>
 
