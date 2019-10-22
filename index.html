@@ -25,56 +25,56 @@
 
   <div class="container">
     <!-- Timeblocks go here .. create time block, append row, append save button -->
-    <div class="row" id="rowNineAM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="9A">9A</div>
+    <div class="row" id="_9">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_09AM">9A</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea9A">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="9A"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowTenAM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="10A">10A</div>
+    <div class="row" id="_10">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_10AM">10A</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea10A">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="10A"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowElevenAM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="11A">11A</div>
+    <div class="row" id="_11">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_11AM">11A</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea11A">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="11A"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowTwelvePM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="12P">12P</div>
+    <div class="row" id="_12">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_12PM">12P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea12P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="12P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowOnePM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="1P">1P</div>
+    <div class="row" id="_13">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_1PM">1P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea1P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="1P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowTwoPM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="2P">2P</div>
+    <div class="row" id="_14">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_2PM">2P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea2P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="2P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="rowThreePM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="3P">3P</div>
+    <div class="row" id="_15">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_3PM">3P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea3P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="3P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="_04PM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="4P">4P</div>
+    <div class="row" id="_16">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_4PM">4P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea4P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="4P"><i class="fas fa-save"></i>Save</button>
     </div>
 
-    <div class="row" id="_05PM">
-      <div class="hour col-1 col-s-1 col-xs-1" id="5P">5P</div>
+    <div class="row" id="_17">
+      <div class="hour col-1 col-s-1 col-xs-1" id="_5PM">5P</div>
       <textarea class="textarea col-10 col-s-1 col-xs-1" id="txtArea5P">.col-10 .col-md-4</textarea>
       <button class="btn saveBtn col-1 col-s-1 col-xs-1" id="5P"><i class="fas fa-save"></i>Save</button>
     </div>
@@ -108,30 +108,42 @@
     // var currentHour = moment().format("hhA");
 
     var currentHour = moment();
-    let hour = currentHour.get('hour');
-    // hour = 10;
+    // let hour = currentHour.get('hour');
+    
+    //test variable b/c i haven't figured out how to test
+    hour = 12;
 
     if (hour < 9 || hour > 17) {
 
       alert("too early or too late")
     } else {
 
-      alert("color the row")
+      // alert("color the row")
+      // current hour (10) - 9 = 1 ... (color one row)
+      // current hour (11) - 9 = 2 ... (color two rows 9 & 10)
 
-    }
+      // final hour (17) - current hour (10) = 7 (color 7 rows green, one row red, and two rows gray)
+      const firstHour = 9;
+      const finalHour = 17;
 
-    console.log("the moment is " + currentHour.format());
-    console.log("the current hour is " + hour);
+      pastRows = hour - firstHour;
+      futureRows = finalHour - hour;
 
-    
-    //compare the current time to the window of 9A - 5P ... color rows accordingly
+      for (i = 0; i <= pastRows; i++){
+        $("#_" + (hour-i)).addClass("past"); //update current hour
+      }
 
       
+      $("#_" + hour).addClass("present"); //update current hour
+//not working yet ... check logic tomorrow
+      for (i=0; i <= futureRows; i++)
+      $("#_" + (hour+1)).addClass("future"); //update current hour
 
-
+    }
+    console.log("the moment is " + currentHour.format());
+    console.log("the current hour is " + hour);
+      
     })
-
-    // })
   </script>
 
 
