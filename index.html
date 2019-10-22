@@ -97,6 +97,14 @@
         hour: "",
         subject: ""
       };
+
+      //not working ... not retrieving
+      var currentSubjectEl = $("#_txtArea5PM")
+      var currentAppt = localStorage.getItem("apptInfo")
+      var currentApptText = JSON.parse(currentAppt)
+      currentSubjectEl.text(currentApptText.subject);
+
+      console.log("current appts " + currentApptText.subject)
       
       $(".btn").on("click", function () {
         var getBtnId = $(this).attr("id");
