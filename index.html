@@ -86,7 +86,7 @@
       //set the beinnging and end of the day
       const firstHour = 9;
       const finalHour = 17;
-      
+
       //display the current day in the header
       var currentDayEl = $("#currentDay")
       var dayIs = moment().format("dddd, MMMM Do YYYY");
@@ -94,18 +94,24 @@
 
       //create an object for collecting the appointment information
       var apptInfo = {
-        hour: "",
-        subject: ""
+        hour: null,
+        subject: null
       };
 
       //not working ... not retrieving ... set for a single static element vs dymancially updating the page
-      var currentSubjectEl = $("#_txtArea5PM")
-      var currentAppt = localStorage.getItem("apptInfo")
-      var currentApptText = JSON.parse(currentAppt)
-      currentSubjectEl.text(currentApptText.subject);
+      var currentSubjectEl = $("#_txtArea5PM");
 
-      console.log("current appts " + currentApptText.subject)
-      
+      //test to see if there is something in local storage ... need to fix the logic here to account for no local storage
+      var currentAppt = localStorage.getItem("apptInfo");
+      var currentApptText = JSON.parse(currentAppt);
+
+      if (currentApptText !== null || currentApptText !== undefined) {
+        currentSubjectEl.text(currentApptText.subject)
+      }
+
+
+      // console.log("current appts " + currentApptText.subject)
+
       $(".btn").on("click", function () {
         var getBtnId = $(this).attr("id");
         var calcHour = getBtnId;
@@ -116,30 +122,30 @@
         apptInfo.subject = subjectEl;
         localStorage.setItem("apptInfo", JSON.stringify(apptInfo));
       });
-    
-    //color up the form
-    //get the current hour
-    var currentHour = moment();
-    let hour = currentHour.get('hour');
-    
-    //test variable b/c i haven't figured out how to test
-    // hour = 7;
 
-    if (hour < 9 || hour > 17) {
-      $(".row").addClass("past"); //if outside of biz hours all rows are gray
-    } else {
-      pastRows = hour - firstHour; //compute how many hours in the past
-      futureRows = finalHour - hour; //compute how many hours in the future
+      //color up the form
+      //get the current hour
+      var currentHour = moment();
+      let hour = currentHour.get('hour');
 
-      for (i = 0; i <= pastRows; i++){
-        $("#_" + (hour-i)).addClass("past"); //update past hours to gray
+      //test variable b/c i haven't figured out how to test
+      // hour = 7;
+
+      if (hour < 9 || hour > 17) {
+        $(".row").addClass("past"); //if outside of biz hours all rows are gray
+      } else {
+        pastRows = hour - firstHour; //compute how many hours in the past
+        futureRows = finalHour - hour; //compute how many hours in the future
+
+        for (i = 0; i <= pastRows; i++) {
+          $("#_" + (hour - i)).addClass("past"); //update past hours to gray
+        }
+
+        $("#_" + hour).addClass("present"); //update current hour to red
+
+        for (i = 1; i <= futureRows; i++)
+          $("#_" + (hour + i)).addClass("future"); //update future hours to green
       }
-
-      $("#_" + hour).addClass("present"); //update current hour to red
-    
-      for (i=1; i <= futureRows; i++)
-      $("#_" + (hour+i)).addClass("future"); //update future hours to green
-    } 
     })
   </script>
 
