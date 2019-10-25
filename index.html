@@ -105,7 +105,7 @@
       var currentAppt = localStorage.getItem("apptInfo");
       var currentApptText = JSON.parse(currentAppt);
 
-      if (currentApptText !== null || currentApptText !== undefined) {
+      if (currentApptText !== null) {
         currentSubjectEl.text(currentApptText.subject)
       }
 
@@ -113,10 +113,12 @@
       // console.log("current appts " + currentApptText.subject)
 
       $(".btn").on("click", function () {
-        var getBtnId = $(this).attr("id");
-        var calcHour = getBtnId;
-        //get appointment info - compute textarea id from button id
-        var subjectEl = document.getElementById("_txtArea".concat(calcHour.replace("_btn", ""))).value
+        var getBtnId = "";
+        getBtnId = $(this).attr("id");
+        var calcHour = getBtnId; //use this to compute the key for the key:value pair
+        //get appointment info - compute textarea id from button id to create key value pair
+        var subjectEl = ""
+        subjectEl = document.getElementById("_txtArea".concat(calcHour.replace("_btn", ""))).value
         //set local storeage with most recent value
         apptInfo.hour = getBtnId;
         apptInfo.subject = subjectEl;
